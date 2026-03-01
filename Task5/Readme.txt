@@ -1,25 +1,42 @@
-Task 1: Static Web Hosting in EC2 (Ubuntu + Nginx)
+Task 5: Static Website Hosting in Amazon S3
+Objective
 
-Simple Definition:
-Deploy a basic website on an EC2 Ubuntu server using Nginx.
+Step 1: Create S3 Bucket
+        Go to S3 → Create bucket → give a unique name.
+        Uncheck Block all public access.
+        Click Create.
 
-Objective:
-Learn EC2 setup, SSH, and web server deployment.
+Step 2: Upload File
+        Open bucket → Upload index.html and assets.
+        Ensure index.html is at the root.
 
-Steps Involved in Launching & Deployment
-1. AMI Selection: Choose Ubuntu Server 22.04 LTS as the Machine Image.
-2. Instance Type: Select t2.micro (Free Tier eligible).
-3. Key Pair: Create and download 'hey.pem' for secure SSH access.
-4. Network Security:
-   - Add SSH rule (Port 22) for remote terminal access.
-   - Add HTTP rule (Port 80) from 0.0.0.0/0 to allow public web traffic.
-5. Nginx Installation: Update the repository and install the Nginx web server package.
-6. Web Content Deployment:
-   - Download the "Fireworks Composer" zip file using wget.
-   - Unzip and move files to the default web root directory /var/www/html.
-7. Verification: Confirm the site is live by browsing to the Public IP 13.57.197.161.
+Step 3: Set Permissions
+        Permissions → Bucket Policy → Edit.
+        Add JSON policy (replace YOUR-BUCKET-NAME):
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+    }
+  ]
+}
 
-Proof Of Completion:
-* EC2 Screenshot: Showing Instance ID i-09e221afdbb1abb76 and 'Running' state.
-* Website Output: Showing the "Fireworks Composer" page rendered at the public IP.
-* Command Proof: This Commands.txt file documenting the terminal execution.
+Step 4: Enable Static Website Hosting
+        Properties → Static website hosting → Enable.
+        Index document: index.html.
+        Copy Bucket website endpoint.
+
+Step 5:Test
+       Paste endpoint in browser:
+       http://<bucket-name>.s3-website-<region>.amazonaws.com
+
+Proof of Completion
+
+Screenshot of the S3 bucket with files uploaded.
+Screenshot of the Bucket Policy applied.
+Screenshot of the website opened in a browser.
