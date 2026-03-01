@@ -1,0 +1,17 @@
+# Task 17: DynamoDB Table Creation 
+
+# Step 1: Create DynamoDB Table
+# - Go to AWS Console → DynamoDB → Create Table
+# - Table name: Dynamo2
+# - Primary key:
+#     - Partition key: UID (Number)
+#     - Sort key: OID (Number)
+# - Create table
+
+# Step 2: Insert Sample Items
+# - Go to Dynamo2 → Items → Create Item
+# 1) Item 1:
+#     - UID: 1
+#     - OID: 100
+#     - Add new attribute:
+#         - item1: (String)

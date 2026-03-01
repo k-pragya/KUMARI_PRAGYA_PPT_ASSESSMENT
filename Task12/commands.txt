@@ -1,0 +1,34 @@
+Task 12: Website Down Alert using Lambda + SNS
+
+Steps Performed
+
+1. IAM Role Creation
+- Created IAM Role LambdaWebsiteMonitorRole with policies:
+  - AWSLambdaBasicExecutionRole
+  - AmazonSNSFullAccess
+  - CloudWatchFullAccess
+
+2. Lambda Function
+- Created Lambda function WebsiteMonitor (Python 3.14)
+- IAM Role attached: LambdaWebsiteMonitorRole
+- Lambda code checks the website and pushes custom metric WebsiteUp to CloudWatch.
+- Sends SNS notification if website is down.
+
+3. Lambda Trigger
+- Added EventBridge (CloudWatch Events) trigger to run Lambda every 5 minutes
+- Schedule expression: rate(5 minutes)
+
+4. SNS Setup
+- Created SNS Topic: WebsiteDownAlert
+- Subscribed email to SNS topic and confirmed subscription
+
+5. CloudWatch Alarm
+- Metric: WebsiteMonitor → WebsiteUp
+- Threshold: WebsiteUp ≤ 0
+- Action: Send notification to WebsiteDownAlert SNS topic
+- Alarm name: WebsiteDownAlarm
+
+6. Testing
+- Temporarily changed WEBSITE_URL to invalid URL
+- Ran Lambda manually
+- CloudWatch Alarm triggered → SNS sent email alert

@@ -1,0 +1,84 @@
+
+# Task 2: Disk Partitioning
+# Ubuntu (MBR) & Windows (GPT)
+
+# 1. Create new volume in EC2
+#    - Size: 15 GB
+#    - Type: gp2/gp3
+#    - Availability Zone: same as Windows instance
+
+# 2. Attach the volume to Windows instance
+#    - Actions → Attach Volume → Select Windows server → Attach
+
+# 3. Connect to Windows server
+
+# 4. Open Disk Management:
+#    Server Manager → Tools → Computer Management → Disk Management
+
+# 5. Initialize new disk as GPT
+
+# 6. Right-click unallocated space → New Simple Volume
+#    - Specify volume size (e.g., 5000 MB)
+#    - Assign drive letter (e.g., D:)
+#    - Format as NTFS → Finish
+
+# 7. Open new drive (D:) to verify
+
+# -------------------------------
+# Part B: Ubuntu EC2 MBR Disk
+# -------------------------------
+
+# 1. List all disks
+lsblk
+
+# 2. Check detailed disk info
+sudo fdisk -l
+
+# 3. Open disk for partitioning (replace nvme1n1 with your disk)
+sudo fdisk /dev/nvme1n1
+
+# Inside fdisk:
+# n → new partition
+# p → primary
+# First sector → Enter (default)
+# Last sector → Enter or specify size (e.g., +4G)
+# w → write changes and exit
+
+# 4. Verify partition
+lsblk
+
+# 5. Format partition to ext4
+sudo mkfs.ext4 /dev/nvme1n1p1
+
+# 6. Create mount point
+sudo mkdir /mnt/myvol
+
+# 7. Navigate to /mnt
+cd /mnt
+
+# 8. Enter the mount directory
+cd myvol
+
+# 9. List contents (should be empty)
+ls
+
+# 10. Go back to home directory
+cd ~
+
+# 11. Mount the new partition
+sudo mount /dev/nvme1n1p1 /mnt/myvol
+
+# 12. Enter the mounted directory
+cd /mnt/myvol
+
+# 13. List contents to verify mount
+ls
+
+# 14. Create a test file
+sudo touch a.txt
+
+# 15. Create and edit a text file
+sudo nano b.txt
+
+# 16. List contents to confirm files
+ls

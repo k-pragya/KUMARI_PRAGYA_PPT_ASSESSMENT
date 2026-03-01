@@ -1,0 +1,44 @@
+
+# Task 3: Attach EBS Volume from Different AZ using Snapshot
+
+
+# STEP 1: Identify the Source EBS Volume
+# 1. Log into AWS Console -> EC2 -> Volumes.
+# 2. Select the volume attached to your running instance.
+# [cite_start]3. Note the Volume ID (e.g., vol-0123456789abcdef0) and AZ (e.g., us-west-1a). [cite: 32]
+
+# STEP 2: Create Snapshot of the Volume
+# [cite_start]1. Select the Volume -> Actions -> Create snapshot. [cite: 34]
+# 2. Add Description: "Snapshot for cross-AZ attachment".
+# [cite_start]3. Click "Create snapshot" and monitor status in 'Snapshots' tab until 'Completed'. [cite: 29]
+
+# STEP 3: Create New Volume in Another AZ
+# 1. Go to EC2 -> Snapshots.
+# 2. Select the snapshot created in Step 2.
+# [cite_start]3. Actions -> Create volume from snapshot. [cite: 34]
+# [cite_start]4. CRITICAL: Change Availability Zone to a different one (e.g., us-west-1c). [cite: 32]
+# 5. Click "Create volume".
+
+# STEP 4: Attach Volume to EC2 Instance
+# [cite_start]1. Ensure an EC2 instance is running in the NEW AZ (us-west-1c). [cite: 34]
+# 2. Go to Volumes -> Select the new volume created in Step 3.
+# [cite_start]3. Actions -> Attach volume. [cite: 34]
+# 4. Select the target EC2 instance.
+# 5. Set Device name: /dev/xvdf
+# 6. Click "Attach".
+
+# STEP 5: Verify Attachment (Terminal Commands)
+# 1. SSH into the EC2 instance in the new AZ:
+ssh -i hey.pem ubuntu@<New-Instance-IP>
+
+# [cite_start]2. List block devices to verify the 8GB/15GB volume appears: [cite: 35]
+lsblk
+
+# 3. Create a mount point:
+sudo mkdir /mnt/snapshot_data
+
+# 4. Mount the device:
+sudo mount /dev/xvdf1 /mnt/snapshot_data
+
+# 5. Verify files migrated from the original AZ:
+ls /mnt/snapshot_data

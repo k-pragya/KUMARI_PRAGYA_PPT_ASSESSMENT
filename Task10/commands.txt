@@ -1,0 +1,84 @@
+# Task 10: VPC 3-Tier Architecture
+
+# Step 1: Create VPC
+# - Go to VPC → Create VPC
+# - Name: UVACA
+# - IPv4 CIDR: 10.0.0.0/24
+# - Save
+
+# Step 2: Create Internet Gateway
+# - Go to VPC → Internet Gateways → Create Internet Gateway
+# - Name: IG1
+# - Attach to VPC: UVACA
+
+# Step 3: Create Subnets
+# 1) Presentation Layer (Public Subnet)
+#    - Name: PresentationLayer1
+#    - VPC: UVACA
+#    - AZ: No preference
+#    - CIDR: 10.0.0.0/27
+# 2) Business Layer (Private Subnet)
+#    - Name: BusinessLayer2
+#    - VPC: UVACA
+#    - AZ: No preference
+#    - CIDR: 10.0.0.32/27
+# 3) Database Layer (Private Subnet)
+#    - Name: DatabaseLayer3
+#    - VPC: UVACA
+#    - AZ: No preference
+#    - CIDR: 10.0.0.64/26
+
+# Step 4: Create Route Tables
+# 1) Public Route Table
+#    - Name: RT1-Public
+#    - VPC: UVACA
+#    - Edit Routes → Add Route
+#      - Destination: 0.0.0.0/0
+#      - Target: IG1
+#    - Associate with PresentationLayer1 subnet
+# 2) Private Route Table
+#    - Name: MyRouteTable2-Private
+#    - VPC: UVACA
+#    - Routes → Add Route
+#      - Destination: 0.0.0.0/0
+#      - Target: NAT Gateway (to be created in next step)
+#    - Associate with BusinessLayer2 and DatabaseLayer3 subnets
+
+# Step 5: Launch EC2 Instances
+# 1) Public Instance (Presentation Layer)
+#    - Name: MyInst-1-Public
+#    - AMI: Ubuntu
+#    - VPC: UVACA
+#    - Subnet: PresentationLayer1
+#    - Auto-assign Public IP: Enabled
+#    - Connect via SSH using key pair
+sudo apt update
+ping google.com  # Confirm Internet access
+
+# 2) Private Instance (Business Layer)
+#    - Name: MyInst-1-Private
+#    - VPC: UVACA
+#    - Subnet: BusinessLayer2
+#    - Auto-assign Public IP: Disabled
+#    - Connect via SSH tunneling through Public Instance:
+#      - ssh -i "mikey.pem" ubuntu@<Public-Instance-Public-IP>
+#      - From public instance, ssh to private instance
+
+# Step 6: Create NAT Gateway
+# - Go to VPC → NAT Gateways → Create NAT Gateway
+# - Name: MyNATGateway
+# - Subnet: PresentationLayer1 (public)
+# - Assign Elastic IP automatically
+# - Save
+
+# Step 7: Configure Private Subnet Routes to NAT Gateway
+# - Edit MyRouteTable2-Private
+# - Add Route:
+#   - Destination: 0.0.0.0/0
+#   - Target: MyNATGateway
+# - Save
+
+# Step 8: Verification
+# - Public instance can access Internet directly
+# - Private instance can access Internet via NAT Gateway
+# - Test SSH tunneling and connectivity between instances

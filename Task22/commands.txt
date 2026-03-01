@@ -1,0 +1,9 @@
+Objective: Monitor Azure resources using Azure Monitor and Metrics.
+
+Step 1: Search for 'Azure Monitor' in the portal.
+Step 2: Open Azure Monitor Dashboard.
+Step 3: Click on 'Metrics'.
+Step 4: Select a resource like VM or Storage Account.
+Step 5: View metrics such as CPU, Disk, and Network usage.
+Step 6: Go to 'Activity Log' to check resource activities.
+Step 7: Explore Alerts section.

@@ -1,0 +1,3 @@
+This document describes the process of monitoring cloud resources through Azure Monitor in the Microsoft Azure Portal. The Azure Monitor dashboard provides centralized visibility into resource performance, health, and operational activity.
+
+Using the Metrics feature, a specific resource such as a Virtual Machine or Storage Account is selected to analyze performance indicators including CPU utilization, disk operations, and network traffic. The Activity Log section is reviewed to track configuration changes and resource-level events. Additionally, the Alerts section is explored to understand how threshold-based notifications can be configured. Screenshots of the Metrics view and Monitor Overview are captured as documentation of successful monitoring configuration.

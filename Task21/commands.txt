@@ -1,0 +1,12 @@
+Objective: Explore users and role management in Microsoft Entra ID.
+
+Step 1: Login to Azure Portal.
+Step 2: Search for 'Microsoft Entra ID'.
+Step 3: Open the Entra ID Dashboard.
+Step 4: Click on 'Users' from the left menu.
+Step 5: Click 'New User' → Create New User.
+Step 6: Enter Name, Username, and basic details.
+Step 7: Click Create to add the user.
+Step 8: Go to 'Roles and Administrators'.
+Step 9: Select a basic role (Reader) and assign it to the user.
+Step 10: Verify the user and role assignment.

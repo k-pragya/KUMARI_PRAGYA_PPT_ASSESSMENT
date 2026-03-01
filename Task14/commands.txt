@@ -1,0 +1,32 @@
+# Task 14: CloudWatch Alarm (70% CPU → Auto Stop + Email)
+
+
+# Step 1: Select EC2 Metric
+# - Go to CloudWatch → Alarms → Create Alarm
+# - Select metric → EC2 → Per-Instance Metrics
+# - Choose CPUUtilization for your instance
+
+# Step 2: Configure Alarm
+# - Specify condition:
+#     - Threshold type: Static
+#     - Threshold value: 75% CPU
+#     - Period: (default or 5 min)
+# - Advanced settings: (optional)
+# - Alarm name: HITAlarm
+
+# Step 3: Configure Actions
+# - Alarm state → Actions → Select:
+#     - Stop instance
+# - Add notification:
+#     - Select SNS topic → HITTopic
+# - Review and create alarm
+
+# Step 4: Test the Alarm
+# - Connect to EC2 instance
+sudo apt update
+sudo apt install stress -ng 
+# - Stress CPU to trigger alarm:
+sudo stress -ng -cpu 0 --cpu-load 80 --timeout 10m
+# - CloudWatch alarm should trigger
+# - Verify instance stops automatically
+# - Check email notification from SNS

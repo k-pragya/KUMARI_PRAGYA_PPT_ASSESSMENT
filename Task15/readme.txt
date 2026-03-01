@@ -1,0 +1,3 @@
+This task demonstrates how to deliver a static website globally using Amazon CloudFront integrated with Amazon S3. The S3 bucket must contain the website files with Static Website Hosting enabled.
+
+A new CloudFront Web Distribution is created, selecting the S3 bucket as the Origin Domain and setting index.html as the Default Root Object. Default configuration settings are retained, and the distribution is deployed. Once the status changes to Deployed, the generated CloudFront Domain Name is accessed in a browser to verify successful global content delivery with improved performance and reduced latency.

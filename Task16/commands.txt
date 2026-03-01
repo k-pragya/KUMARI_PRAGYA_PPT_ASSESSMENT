@@ -1,0 +1,34 @@
+# Task 16: RDS Database + SQL Workbench Connection & Queries
+
+# Step 1: Launch RDS Database
+# - Go to AWS RDS → Create Database
+# - Engine options: Aurora or MySQL
+# - Templates: Free Tier
+# - Database settings:
+#     - DB instance identifier: Database-1
+#     - Master username: pragya
+#     - Master password: <YourPassword>
+# - Allocated storage: 20 GB
+# - Enable Public access: Yes
+# - VPC: Select existing or default VPC
+# - Save and launch database
+
+
+# Step 2: Connect via SQL Workbench
+# - Open SQL Workbench
+# - Create new connection:
+#     - Connection name: Database-1
+#     - Hostname: Copy endpoint from RDS console
+#     - Port: Default 3306 (for MySQL)
+#     - Username: pragya
+#     - Password: <YourPassword>
+# - Test connection → Should succeed
+# - Save connection
+
+# Step 3: Execute Queries
+# - Open connection to Database-1
+# - Execute basic SQL queries:
+#     - Create table
+#         CREATE TABLE Student (ID INT PRIMARY KEY, Name VARCHAR(50));
+#     - Insert data
+# - Verify query results

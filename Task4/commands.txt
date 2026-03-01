@@ -1,0 +1,69 @@
+# Task 4: Auto Scaling Group (ASG) and Elastic Load Balancer (ELB) in EC2
+
+# Objective: Understand high availability and scaling concepts, practice Launch Templates, ASG, and ELB setup.
+
+# Step 1: Create Security Group
+# Name: allowall
+# Inbound rules: allow all traffic 0.0.0.0/0
+# Save security group
+
+# Step 2: Launch EC2 Instance for Static Website
+# Select AMI: Ubuntu/your preferred image
+# Instance type: t2.micro
+# Key pair: select existing or create new
+# Security group: allowall
+# Add tag: Name → EcomImage
+# Launch instance
+# Deploy static website on the instance (as done in Task 1)
+
+# Step 3: Create Launch Template
+# Name: ECOM_template
+# AMI: select instance created above
+# Instance type: t2.micro
+# Key pair: select existing key
+# Security group: allowall
+# Save template
+
+# Step 4: Create Target Group
+# Name: TG1
+# Target type: Instances
+# Protocol: HTTP
+# Health check:
+#   Healthy threshold: 2
+#   Unhealthy threshold: 2
+#   Timeout: 30 sec
+#   Interval: 5 sec
+# Register instances created in Step 2
+# Save target group
+
+# Step 5: Create Load Balancer (Application LB)
+# Name: LB1
+# Scheme: internet-facing
+# IP type: IPv4
+# Select Availability Zones: all required
+# Security group: allowall
+# Select target group: TG1
+# Create load balancer
+
+# Step 6: Create Auto Scaling Group (ASG)
+# Name: ASG1
+# Launch template: ECOM_template
+# Select Availability Zones: all required
+# Attach to existing load balancer: LB1
+# Select target group: TG1
+# Health checks: enable
+# Grace period: 300 sec
+# Capacity:
+#   Desired: 2
+#   Minimum: 1
+#   Maximum: 5
+# Scaling policy: Target tracking
+#   Metric: Average CPU utilization
+#   Target value: 50%
+#   Warm-up period: 200 sec
+# Create Auto Scaling Group
+
+# Step 7: Verify
+# Check Target Group → Registered Instances
+# Ensure instances are healthy (InService)
+# Open Load Balancer URL in browser to confirm static website is accessible

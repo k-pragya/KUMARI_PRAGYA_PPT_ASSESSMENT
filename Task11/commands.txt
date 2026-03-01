@@ -1,0 +1,52 @@
+# Task 11: S3 Upload Email Notification (Lambda + SNS)
+
+# Step 1: Create Lambda Function
+# - Go to AWS Lambda → Create function
+# - Author from scratch
+# - Function name: HITFunction
+# - Runtime: Python 3.14 (or latest supported)
+# - Permissions: Use existing role or create new role
+#     - Role name: HITRole1
+#     - Attach policies: AWSLambdaBasicExecutionRole, SNS full access
+# - Save function
+
+# Step 2: Create S3 Bucket
+# - Go to S3 → Create bucket
+# - Name appropriately (example: HITBucket)
+# - Enable versioning if needed
+# - Save
+
+# Step 3: Create SNS Topic
+# - Go to SNS → Create topic
+# - Type: Standard
+# - Name: HITTopic
+# - Display name: HITOfficial
+# - Save topic
+
+# Step 4: Subscribe Email to SNS Topic
+# - Go inside topic → Subscriptions → Create subscription
+# - Protocol: Email
+# - Endpoint: your email address
+# - Check your email and confirm subscription
+
+# Step 5: Configure S3 Event Notification
+# - Go to S3 → Select HITBucket → Properties → Event notifications → Create Event Notification
+# - Name the event (example: HITEvent)
+# - Event types: All object create events
+# - Destination: SNS topic → HITTopic
+# - Save
+
+# Step 6: Add Lambda Trigger
+# - Go to Lambda function HITFunction → Add trigger
+# - Select S3 → HITBucket → All object create events
+# - Save
+
+# Step 7: Add Lambda Code
+# - In Lambda console, paste Python script for S3 → SNS notification
+# - Example: publish message to HITTopic when object is uploaded
+# - Deploy Lambda function
+
+# Step 8: Test
+# - Upload a file to HITBucket
+# - Verify that email is received from SNS
+# - Check Lambda logs for execution success

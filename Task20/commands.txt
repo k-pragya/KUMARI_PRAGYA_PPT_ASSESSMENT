@@ -1,0 +1,11 @@
+Objective: Create Virtual Network, Subnet, and basic networking setup.
+
+Step 1: Search for 'Virtual Networks' in Azure Portal.
+Step 2: Click Create Virtual Network.
+Step 3: Select Resource Group.
+Step 4: Enter VNet Name.vnet1
+Step 5: Set Address Space: 10.0.0.0/16.
+Step 6: Create Subnet Name: subnet1.
+Step 7: Set Subnet Address Range: 10.0.1.0/24.
+Step 8: Click Review + Create and then Create.
+Step 9: After deployment, open VNet and verify subnet configuration.

@@ -1,0 +1,3 @@
+This task explores Resource Groups, ARM structure, and cost monitoring in Microsoft Azure. The Resource Group is opened to review all deployed resources and understand their organization under Azure Resource Manager (ARM). A simple resource (VM/Storage) may be deployed to observe grouping behavior.
+
+The Cost Management + Billing section is accessed to view the Cost Analysis dashboard and monitor usage summary (sandbox shows minimal cost). Screenshots of the Resource Group and Cost Analysis pages are captured for documentation.

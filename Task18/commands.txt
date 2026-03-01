@@ -1,0 +1,14 @@
+Objective: Launch and configure a basic Azure Virtual Machine.
+
+Step 1: Login to Azure Portal.
+Step 2: In the search bar, type 'Resource Groups' and click Create.
+Step 3: Enter Resource Group Name and click Review + Create.
+Step 4: Now search for 'Virtual Machines' and click Create → Azure Virtual Machine.
+Step 5: Enter VM Name
+Step 6: Select the Resource Group created.
+Step 7: Choose Image: Ubuntu Server or Windows Server.
+Step 8: Select Size: Standard B1s (or default sandbox size).
+Step 9: Set Username and Password (or SSH key).
+Step 10: Click Review + Create and then Create.
+Step 11: After deployment, open the VM Dashboard and check Status: Running. 
+Step 12: Access the VM from CMD .

@@ -1,0 +1,15 @@
+Task 15: CloudFront for S3 Website
+
+Step 1:Ensure S3 bucket has website files and Static Website Hosting enabled.
+
+Step 2:Go to CloudFront → Create Distribution → Web.
+
+Step 3:Origin Domain: select your S3 bucket.
+
+Step 4:Default Root Object: index.html.
+
+Step 5:Keep other settings default → Click Create Distribution.
+
+Step 6:Wait for Status = Deployed.
+
+Step 7:Open CloudFront Domain Name in browser → website loads.

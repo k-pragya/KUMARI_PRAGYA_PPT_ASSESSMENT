@@ -1,0 +1,36 @@
+# STEP 1: Create Source and Destination Buckets
+# 1. Create Source Bucket
+# 2. Properties -> Bucket Versioning -> Edit -> Enable
+# 3. Create Destination Bucket
+# 4. Properties -> Bucket Versioning -> Edit -> Enable
+
+# STEP 2: Enable Replication Rule (RRI)
+# 1. Source Bucket -> Management -> Replication rules -> Create replication rule
+# 2. Rule name: RRI
+# 3. Status: Enabled
+# 4. Source selection: Apply to all objects in the bucket
+# 5. Destination: Select the Destination Bucket
+# 6. IAM Role: Create new role
+# 7. Check: Replicate existing objects
+# 8. Save and Submit
+
+# STEP 3: Create Lifecycle Policy (LFCI)
+# 1. Source Bucket -> Management -> Lifecycle rules -> Create lifecycle rule
+# 2. Lifecycle rule name: LFCI
+# 3. Scope: Apply to all objects in the bucket
+# 4. Lifecycle rule actions:
+#    - Transition current versions of objects between storage classes
+#    - Expire current versions of objects
+#    - Transition noncurrent versions of objects between storage classes
+#    - Expire noncurrent versions of objects
+
+# 5. Rule Settings:
+#    - Current versions: Transition to Standard-IA after 30 days
+#    - Current versions: Expire after 60 days
+#    - Noncurrent versions: Transition to Standard-IA after 40 days
+#    - Noncurrent versions: Permanently delete as per policy
+
+# STEP 4: Verification
+# 1. Upload a test file to the Source Bucket.
+# 2. Verify the file is replicated to the Destination Bucket.
+# 3. Check rule status under the Management tab.

@@ -1,0 +1,12 @@
+Objective: Create a storage account and explore Blob, File, and Table storage.
+
+Step 1: Login to Azure Portal.
+Step 2: Search for 'Storage Accounts' and click Create.
+Step 3: Select Resource Group made .
+Step 4: Enter Storage Account Name which should be unique.
+Step 5: Select Region and keep default settings.
+Step 6: Click Review + Create and then Create.
+Step 7: After creation, open the Storage Account.
+Step 8: Click on 'Containers' and create a new container.
+Step 9: Upload a sample file to the container (Blob Storage).
+Step 10: Explore File Shares and Tables section.

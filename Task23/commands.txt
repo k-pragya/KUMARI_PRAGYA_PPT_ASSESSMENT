@@ -1,0 +1,8 @@
+Objective: Understand Resource Groups, ARM structure, and cost analysis.
+
+Step 1: Search for 'Resource Groups' and open it.
+Step 2: View all resources inside the Resource Group (ARM structure).
+Step 3: Deploy any simple resource if needed (Storage/VM).
+Step 4: Search for 'Cost Management + Billing'.
+Step 5: Open Cost Analysis dashboard.
+Step 6: View usage and cost summary (Sandbox shows limited cost).

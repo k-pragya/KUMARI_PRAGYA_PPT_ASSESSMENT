@@ -1,0 +1,23 @@
+# Task 8: Create IAM Users and Groups
+
+# Step 1: Create IAM Group
+# - Go to AWS Console → IAM → Groups → Create Group
+# - Name the group 
+# - Attach permissions: AmazonFullAccess
+# - Save the group
+
+# Step 2: Create IAM Users
+# - Go to IAM → Users → Add User
+# - Enter user name 
+# - Select access type:
+#     - AWS Management Console access
+# - Set custom password for console login
+# - Require user to reset password on first login
+
+# Step 3: Add Users to Group
+# - While creating user or after creation, add the user to the previously created group (AdminGroup)
+# - Review and create user
+
+# Step 4: Verification
+# - Confirm that the user is listed in the IAM Users section
+# - Confirm user has correct permissions via group

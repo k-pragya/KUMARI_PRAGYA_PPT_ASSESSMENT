@@ -1,0 +1,3 @@
+This task focuses on understanding subscription management and service reliability concepts in Microsoft Azure. The active Subscription (Sandbox or Student) is accessed to review key details such as subscription ID, billing scope, and usage summary from the Subscription Overview page.
+
+The Help + Support section is used to review official SLA documentation, including the Service Level Agreements for Virtual Machines and Storage services. Additionally, Service Health and Resource Health are explored to understand platform status, incident reporting, and resource-level availability. Screenshots of the Subscription Overview and SLA reference pages are captured for documentation purposes.

@@ -1,0 +1,25 @@
+# 1. Connect to EC2 Instance
+ssh -i hey.pem ubuntu@13.57.197.161
+
+# 2. Update package repository
+sudo apt update
+
+# 3. Install Nginx
+sudo apt install nginx -y
+
+# 4. Navigate to web root
+cd /var/www/html
+
+# 5. Download website files
+wget -O app.zip https://www.tooplate.com/download/2153_fireworks_composer
+
+# 6. Install unzip utility
+sudo apt install unzip -y
+
+# 7. Extract files
+unzip app.zip
+
+# 8. Copy website files to web directory
+sudo cp -r 2153_fireworks_composer/* /var/www/html/
+
+# 9. Verify website in browser: http://13.57.197.161

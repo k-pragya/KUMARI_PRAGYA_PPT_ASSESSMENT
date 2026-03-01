@@ -1,0 +1,9 @@
+Objective: Understand Azure subscription, SLA, and service lifecycle basics.
+
+Step 1: Search for 'Subscriptions' in Azure Portal.
+Step 2: Open your active Subscription (Sandbox or Student Subscription).
+Step 3: Review Subscription Overview details.
+Step 4: Go to 'Help + Support' section.
+Step 5: Search for Azure SLA documentation.
+Step 6: Read SLA for Virtual Machines and Storage services.
+Step 7: Open 'Service Health' and 'Resource Health' (if available).

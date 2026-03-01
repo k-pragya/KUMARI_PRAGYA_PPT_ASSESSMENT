@@ -1,0 +1,42 @@
+# Task 13: Start/Stop EC2 using Lambda+API gateway
+
+# Step 1: Create IAM Role for Lambda
+# - Go to IAM → Roles → Create Role
+# - Service: Lambda
+# - Attach policies:
+#     - AmazonEC2FullAccess
+#     - AWSLambdaBasicExecutionRole
+# - Name role: LambdaEC2Role
+# - Save
+
+# Step 2: Create Lambda Function
+# - Go to Lambda → Create function
+# - Author from scratch
+# - Function name: EC2ControlFunction
+# - Runtime: Python 3.x (latest supported)
+# - Permissions: Use existing role → LambdaEC2Role
+# - Save
+
+# Step 3: Add Lambda Code
+# - Add code to start/stop EC2 instances
+
+# Step 4: Test Lambda Function
+# - Click Test in Lambda
+# - Configure test event JSON:
+#     {
+#       "action": "start"
+#     }
+# - Run test → confirm EC2 starts
+# - Modify test event → action: "stop" → confirm EC2 stops
+
+# Step 5: Create API Gateway Trigger
+# - Go to Lambda → Function → Add trigger → API Gateway
+# - Create a new HTTP API
+# - Security: Open (no authentication for testing)
+# - Save trigger
+
+# Step 6: Get API Endpoint
+# - Copy API endpoint URL provided by API Gateway
+# - Test in browser or Postman:
+#     - Append query or JSON body with action=start or action=stop
+# - Confirm EC2 instance starts/stops accordingly

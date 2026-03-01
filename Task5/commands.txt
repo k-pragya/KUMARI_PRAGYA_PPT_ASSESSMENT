@@ -1,0 +1,40 @@
+# Task 5: Static Website Hosting in Amazon S3
+
+# STEP 1: Create S3 Bucket
+# 1. Navigate to S3 Dashboard -> Create bucket.
+# 2. Bucket Name: <your-unique-bucket-name> (e.g., ishmit-capgemini-s3).
+# 3. Object Ownership: ACLs enabled (if required for public access).
+# 4. Uncheck: "Block all public access" to allow the website to be visible to the world.
+# 5. Acknowledge the settings and click "Create bucket".
+
+# STEP 2: Upload Website Files
+# 1. Open your created bucket.
+# 2. Click "Upload" and add your 'index.html' and asset folders.
+# 3. Ensure 'index.html' is at the root level of the bucket.
+
+# STEP 3: Set Bucket Permissions (Policy)
+# 1. Permissions -> Bucket Policy -> Edit.
+# 2. Use the following JSON policy (Replace YOUR-BUCKET-NAME):
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+        }
+    ]
+}
+# 3. Save changes.
+
+# STEP 4: Enable Static Website Hosting
+# 1. Properties -> Static website hosting -> Edit.
+# 2. Selection: Enable.
+# 3. Index document: index.html.
+# 4. Save changes and copy the generated 'Bucket website endpoint'.
+
+# STEP 5: Test Website
+# 1. Paste the endpoint URL into a browser:
+#    http://<bucket-name>.s3-website-<region>.amazonaws.com
