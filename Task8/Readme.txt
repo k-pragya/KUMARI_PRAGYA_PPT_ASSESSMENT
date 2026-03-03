@@ -14,4 +14,8 @@ Verify: Ensure users appear in IAM and inherit group permissions.
 Proof::
 
 Screenshot of IAM group with policy.
+<<<<<<< HEAD
 Screenshot of users in the group.
+=======
+Screenshot of users in the group.
+>>>>>>> 7080b8f (Save assessment tasks)

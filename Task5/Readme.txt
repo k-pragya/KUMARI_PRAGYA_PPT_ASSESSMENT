@@ -39,4 +39,8 @@ Proof of Completion
 
 Screenshot of the S3 bucket with files uploaded.
 Screenshot of the Bucket Policy applied.
+<<<<<<< HEAD
 Screenshot of the website opened in a browser.
+=======
+Screenshot of the website opened in a browser.
+>>>>>>> 7080b8f (Save assessment tasks)
