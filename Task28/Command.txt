@@ -1,0 +1,14 @@
+TASK 4 — Hybrid Architecture Simulation
+
+Objective: Simulate secure on-prem to cloud architecture using Bastion Host, Private Subnet,Route Tables, and controlled access.
+
+Step-by-Step Guide:
+
+Step 1: Create VPC/VNet with Public and Private Subnets.
+Step 2: Launch Bastion Host in Public Subnet with Public IP.
+Step 3: Launch Private VM in Private Subnet without Public IP.
+Step 4: Configure Security Group/NSG to allow SSH only from Bastion.
+Step 5: Update Route Tables for private subnet isolation.
+Step 6: Access Private VM using Bastion (Jump Server).
+Step 7: Verify Private VM is not directly accessible from internet.
+Step 8: Document complete traffic flow diagram (User → Bastion → Private VM)

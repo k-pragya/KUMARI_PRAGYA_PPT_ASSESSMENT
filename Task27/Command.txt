@@ -1,0 +1,16 @@
+TASK 3 — IAM + RBAC + Least Privilege (AWS + Azure)
+
+Objective: Implement role-based access control with least privilege policy in AWS IAM and Azure Entra ID.
+
+Step-by-Step Guide:
+
+Step 1: Go to AWS IAM and create a user named Developer.
+Step 2: Attach EC2 Full Access Policy to the user.
+Step 3: Create a custom policy to Deny S3 Delete permission.
+Step 4: Attach the policy via IAM Role.
+Step 5: Test: EC2 access should work, S3 delete should fail.
+Step 6: Open Azure Portal and go to Microsoft Entra ID.
+Step 7: Create a new user in Entra ID.
+Step 8: Assign Reader Role on Resource Group.
+Step 9: Assign Contributor Role on one specific VM only.
+Step 10: Demonstrate allowed and restricted actions.

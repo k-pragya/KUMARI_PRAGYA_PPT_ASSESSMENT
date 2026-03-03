@@ -1,0 +1,16 @@
+  TASK 5 — Serverless + Event Driven Architecture (AWS + Azure)
+
+Objective: Implement event-driven serverless architecture using storage triggers, serverless compute and managed databases.
+
+Step-by-Step Guide:
+
+Step 1: Create an S3 Bucket in AWS.
+Step 2: Create Lambda Function with IAM Role.
+Step 3: Configure S3 Upload Trigger to invoke Lambda.
+Step 4: Write Lambda code to store data in DynamoDB.
+Step 5: Enable CloudWatch Logs for monitoring.
+Step 6: Create Azure Storage Account (Blob).
+Step 7: Create Azure Function with Blob Trigger.
+Step 8: Create Cosmos DB database.
+Step 9: Connect Azure Function output to Cosmos DB.
+Step 10: Upload file to trigger function and verify logs and database entries

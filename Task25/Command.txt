@@ -1,0 +1,20 @@
+TASK 1 — Multi-Region Highly Available Web Application (AWS)
+
+Objective: Deploy a fault-tolerant web application across multiple Availability Zones using VPC,
+ALB, Auto Scaling, EC2, S3, and CloudWatch.
+
+Step-by-Step Guide:
+Step 1: Login to AWS Console and open VPC Dashboard.
+Step 2: Create a Custom VPC with CIDR 10.0.0.0/16.
+Step 3: Create 2 Public Subnets in different Availability Zones.
+Step 4: Create 2 Private Subnets in different Availability Zones.
+Step 5: Attach Internet Gateway and configure Public Route Table.
+Step 6: Create NAT Gateway in Public Subnet for private internet access.
+Step 7: Launch 2 EC2 instances inside Private Subnets.
+Step 8: Create Security Groups allowing ALB to access EC2.
+Step 9: Create an Application Load Balancer in Public Subnets.
+Step 10: Create Target Group and register EC2 instances.
+Step 11: Configure Auto Scaling Group (Min 2, Desired 2).
+Step 12: Create S3 Bucket and upload static assets.
+Step 13: Create CloudWatch Alarm for CPU > 70%.
+Step 14: Test application using Public ALB DNS URL and document architecture diagram.

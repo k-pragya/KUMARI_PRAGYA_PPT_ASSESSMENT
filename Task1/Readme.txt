@@ -15,4 +15,8 @@ Steps Performed
 
 Proof of Completion
 -EC2 Proof: Screenshot showing Instance ID `i-09e221afdbb1abb76` in a 'Running' state.
+<<<<<<< HEAD
 -Website Proof: Screenshot of the live "Fireworks Composer" celebration page rendered in a Chrome browser.
+=======
+-Website Proof: Screenshot of the live "Fireworks Composer" celebration page rendered in a Chrome browser.
+>>>>>>> 51d4813 (Added subfolders 25-30)
